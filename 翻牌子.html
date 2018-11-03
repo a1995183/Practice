@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul{
+				overflow: hidden;
+				transform-style: preserve-3d;
+			}
+			li{
+				transform-style:preserve-3d;
+				float:left;
+				margin-left:20px;
+				width:228px;
+				height:352px;
+				list-style:none;
+				position: relative;
+				transition: all linear .5s;
+			
+			}
+			li div{
+			position: absolute;
+			left:0;
+			top:0;
+			width:228px;
+			height:352px;
+			background-size: 100% 100%!important;
+			/*!important;提升指定样式规则的应用优先权。*/	
+			}
+			label{
+				display: block;
+			}
+			li:nth-child(1) .force{
+				background: url("./扑克牌/liuyifei.jpg");
+							}
+			li:nth-child(1) .back{
+				background: url("./扑克牌/puke.jpg");
+			}
+			.force{
+				transform:rotateY(180deg);
+				backface-visibility: hidden;
+			}
+			.back{
+				backface-visibility: hidden;
+			}
+			li:hover{
+				transform:rotateY(180deg);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<label id="first">
+					<div class="force"></div>
+					<div class="back"></div>
+				</label>
+			</li>
+		</ul>
+	</body>
+</html>

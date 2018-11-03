@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background: #111;
+        }
+        ul {
+            transform-style: preserve-3d;
+            width: 200px;
+            height: 200px;
+            /* position: relative; */
+            margin: 200px;
+            margin-left: 40%;
+            /* transform-origin:initial; */
+            /* transition: transform ease 3s;
+             */
+             animation:go 5s linear infinite;
+        }
+
+        div {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            list-style: none;
+            text-align: center;
+            line-height: 200px;
+            font-size: 2em;
+            color: white;
+            opacity: 0.5;
+        }
+
+        .d1 {
+            background: red;
+            transform: rotatex(90deg) translateZ(100px);
+            animation:goto2 5s ease 1;
+        }
+
+        .d2 {
+            transform: rotateX(90deg) translateZ(-100px);
+            background: yellow;
+            animation:togo1 5s ease 1;
+        }
+
+        .d3 {
+            transform: rotateY(90deg) translateZ(-100px);
+            background: green;
+            animation:togo2 5s linear 1;
+        }
+
+        .d4 {
+            transform: rotateY(90deg) translateZ(100px);
+            background: blue;
+            animation:goto3 5s linear 1;
+        }
+
+        .d5 {
+            transform: translateZ(100px);
+            background: purple;
+            animation:goto1 5s linear 1;
+        }
+
+        .d6 {
+            transform: translateZ(-100px);
+            background: orangered;
+            animation:togo3 8s linear 1;
+        }
+        @keyframes go{
+            from{
+                transform:rotateX(0deg) rotateY(0deg)
+            }
+            to{
+                transform: rotatex(360deg) rotateY(360deg)
+            }
+        }
+        @keyframes goto1{
+            from{
+                transform: translateZ(-200px);
+            }
+            to{
+                transform:  translateZ(100px);
+            }
+        }
+        @keyframes goto2{
+            from{
+                transform: rotatex(90deg) translateZ(3000px);
+            }
+            to{
+                transform: rotatex(90deg) translateZ(100px);
+            }
+        }
+        @keyframes goto3{
+            from{
+                transform: rotateY(90deg) translateZ(-300px);
+            }
+            to{
+                transform: rotateY(90deg) translateZ(100px);
+            }
+        }
+        @keyframes togo1{
+            from{
+                transform: rotateX(90deg) translateZ(400px);
+            }
+            to{
+                transform: rotateX(90deg) translateZ(-100px);
+            }
+        }
+        @keyframes togo2{
+            from{
+                transform: rotateY(90deg) translateZ(-500px);
+            }
+            to{
+                transform: rotateY(90deg) translateZ(-100px);
+            }
+        }
+        @keyframes togo3{
+            from{
+                transform:rotateX(0deg) rotateY(0deg) translateZ(-800px);
+            }
+            to{
+                transform:rotateX(360deg) rotateY(360deg) translateZ(-100px);
+            }
+        }
+        ul:hover{
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="box">
+        <div class="d1">1</div>
+        <div class="d2">2</div>
+        <div class="d3">3</div>
+        <div class="d4">4</div>
+        <div class="d5">5</div>
+        <div class="d6">6</div>
+    </ul>
+    <script>
+        let box = document.querySelector("#box");
+        let turnLDeg =0;
+       
+        let turnRDeg =0;
+        box.onclick = () => {
+            turnLDeg+=180 + Math.round(Math.random() * 180);
+        turnRDeg+= 180 + Math.round(Math.random() * 180);
+            box.style.transform = `rotateX(${turnLDeg}deg) rotateY(${turnRDeg}deg)`
+        }
+    </script>
+</body>
+
+</html>

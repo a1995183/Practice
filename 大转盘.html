@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+<style>
+	*{
+		padding:0;
+		margin:0;
+	}
+	.body{
+		position: relative;
+		width:650px;
+		height:600px;
+		margin:0 auto;
+		background: url("./大转盘素材/turntable-bg.jpg") no-repeat;
+		
+	}
+	img{
+		display: block;
+	}
+	.top{
+		position:absolute;
+		left:118px;
+		top:59px;
+		transition:transform ease  3s;
+	}
+	.bottom{
+		position:absolute;
+		left:252px;
+		top:161px;
+	}
+</style>
+
+
+</head>
+<body>
+<div class="body">
+	<div id="circle" class="top"><img src="./大转盘素材/turntable.png"/></div>
+	<div id="pointer" class="bottom"><img src="./大转盘素材/pointer.png" /></div>
+</div>	
+	<script>
+		let circle=document.getElementById("circle")
+		let pointer=document.getElementById("pointer")
+		let lock=false;
+		let turnDeg=0;
+		let timer=null;
+		pointer.onclick=()=>{
+			if(!lock){
+				lock=true;
+				clearInterval(timer);
+				timer=setTimeout(()=>{
+					lock=false;
+				},3000)
+				let num=Math.round(Math.random()*360)
+setTimeout(()=>{},0)
+				 turnDeg+=720+num;
+				circle.style.transform=`rotateZ(${turnDeg}deg)`
+
+			}}
+//		pointer.addEventListener("click",function(){
+//			
+//		})
+	</script>
+</body>
+</html>
